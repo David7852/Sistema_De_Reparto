@@ -1,0 +1,27 @@
+SELECT usuario.id_user
+from usuario inner join chofer
+using (id_user)
+
+SELECT datos_personales.id_user
+from datos_personales inner join chofer
+using (id_user)
+
+SELECT * FROM `datos_personales` inner join chofer using (id_user)
+
+
+
+
+
+
+
+$dataprovider=New CActiveDataProvider('Bla',
+    array(
+    'criteria'=>array(      
+      'order'=>'id ASC',
+      'with'=>array(
+        'user',
+        ),
+    'joinType'=>'INNER JOIN',               
+    'condition'=>'user.auth_token = '.$token,
+        )
+        )); 
